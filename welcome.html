@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Anchor Real Estate Group</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% with messages = get_flashed_messages() %}     
+    {% if messages %}                            
+      {% for message in messages %}            
+        <p>{{message}}</p>                   
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  
+  <div class="jumbotron">
+    <div class="container text-center">
+      <h1>Anchor Real Estate Group</h1>      
+      <p>Hello {{ session['user_name'] }}, how can we help today?</p>
+    </div>
+  </div>
+
+  <br>
+  <div class="container-fluid bg-3 text-center">
+    <form action="/rent">
+      <input type="submit" value="Pay Rent" class="btn btn-primary">
+    </form> 
+
+    <br/>
+
+    <form action="/maintenance">
+      <input type="submit" class="btn btn-primary" value="Maintenance Request">
+    </form>
+  </div>
+
+  <br/>
+
+  <footer class="container-fluid text-center">
+    <p>Call 888-888-8888 to book your property tour</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Anchor Real Estate Group Rental Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  <style>
+   /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<h1>Anchor Real Estate Group Rental Application</h1>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logreg"><span class="glyphicon glyphicon-log-in"></span> Login/Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% with messages = get_flashed_messages() %}     
+  {% if messages %}                            
+    {% for message in messages %}            
+      <p>{{message}}</p>                   
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<form action="/submit_apply"  method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputfirstname4">First Name</label>
+      <input type="email" class="form-control" id="inputfirstname4" placeholder="Valid first name is required.">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputlastname4">Last Name</label>
+      <input type="password" class="form-control" id="inputlastname4" placeholder="Valid last name is required.">
+    </div>
+  </div>
+
+  <div class="form-group col-md-6">
+    <label for="inputdob">Date of Birth</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="Valid date of birth is required">
+  </div>
+
+  <div class="form-group col-md-6">
+    <label for="inputphonenumber">Phone Number</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Valid phone number required">
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputemail">Email</label>
+      <input type="text" class="form-control" id="inputemail" placeholder="you@example.com">
+    </div>
+  
+  <div class="col-md-6">
+    Please list all occupants other than yourself:
+    <label for="Full Name"> Full Name: <span class="text-muted">(If applicable)</span></label>
+    <input type="text" class="form-control" id="address2" placeholder="First and Last Name">
+    <br>
+    RESIDENTIAL HISTORY(Last 3 years)
+  </div>
+
+  <div class="col-md-6 mb-3">Current Address
+  <label for="address2">Address 1 <span class="text-muted">(Required)</span></label>
+  <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+  </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>New York</option>
+        <option>New Jeresy</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+    <div class="col-md-6 mb-3">Previous Address
+      <label for="address2">Address 1 <span class="text-muted">(Required)</span></label>
+      <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+      </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>New York</option>
+            <option>New Jeresy</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-md-6 mb-3">Previous Address
+          <label for="address2">Address 1 <span class="text-muted">(Required)</span></label>
+          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+          </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">State</label>
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>New York</option>
+                <option>New Jeresy</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputZip">Zip</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit Application</button>
+</form>
+<br> 
+
+</form>
+<footer class="container-fluid text-center">
+  <p>Call 888-888-8888 to book your property tour</p>
+</footer>
+
+</body>
+</html>
